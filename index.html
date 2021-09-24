@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic images</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="hero">
+        
+        <div class="container">
+            <div class="info">
+                <h1>HAPPY BIRTHDAY!</h1>
+                <p>A friend like you is more priceless than the most beautiful diamond. You are not only strong and wise, but kind and thoughtful as well. Your birthday is the perfect opportunity to show you how much I care and how grateful I am to have you in my life Mr Muhammad.</p>
+               </div>
+        </div>
+        <div class="slider">
+            <img src="https://img.icons8.com/fluency-systems-regular/48/ffffff/long-arrow-left.png" id="prev"/>
+
+            <div class="preview">
+                <img src="imgs/small1.png" class=" active thumbnail">
+                <img src="imgs/small2.png" class="thumbnail">
+                <img src="imgs/small3.png" class="thumbnail">
+                <img src="imgs/small4.png" class="thumbnail">
+                <img src="imgs/small5.png" class="thumbnail">
+            </div>
+            <img src="https://img.icons8.com/fluency-systems-regular/48/ffffff/long-arrow-right.png" id="next"/> 
+
+        </div>
+    </div> 
+    <script>
+        var prev = document.getElementById("prev");
+        var next = document.getElementById("next");
+        var thumbnail = document.getElementsByClassName("thumbnail");
+        var hero = document.getElementById("hero");
+
+        var backgroundImg = new Array("imgs/bg1.png","imgs/bg2.png","imgs/bg3.png","imgs/bg4.png","imgs/bg5.png");
+        let i = 0;
+        next.onclick=function(){
+            if(i<4){
+            hero.style.backgroundImage='url("'+backgroundImg[i+1]+'")';
+            thumbnail[i+1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i++;
+            }
+        }
+        prev.onclick=function(){
+            if(i>0){
+            hero.style.backgroundImage='url("'+backgroundImg[i-1]+'")';
+            thumbnail[i-1].classList.add("active");
+            thumbnail[i].classList.remove("active");
+            i--;
+            }
+        }
+    </script>   
+</body>
+</html>
